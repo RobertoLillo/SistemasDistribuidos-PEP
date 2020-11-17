@@ -3,9 +3,8 @@ PEP 1 de asignatura Sistemas Distribuidos 2-2020.
 
 Roberto Lillo / Jorge Ayala
 
+## JSON para ingresar formulario en Postman:
 ```
-JSON para ingresar formulario en Postman:
-
 {
     "rut": "",
     "name": "",
