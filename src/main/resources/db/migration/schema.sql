@@ -6,6 +6,7 @@ CREATE TABLE temporary_permit
     rut VARCHAR(10),
     name VARCHAR(100),
     address VARCHAR(100),
+    mail VARCHAR(100),
     reason VARCHAR(512),
     request_time TIMESTAMP,
     valid_from TIMESTAMP,

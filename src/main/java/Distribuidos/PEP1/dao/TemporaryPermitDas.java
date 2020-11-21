@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
+import Distribuidos.PEP1.SendEmailService;
 import Distribuidos.PEP1.model.TemporaryPermit;
 
 @Repository("postgresTemporaryPermit")
@@ -17,11 +18,14 @@ public class TemporaryPermitDas implements TemporaryPermitDao {
     @Autowired
     private Sql2o sql2o;
 
+    @Autowired
+    private SendEmailService sendEmailService;
+
     @Override
     public Optional<TemporaryPermit> insertTemporaryPermit(UUID id, TemporaryPermit temporaryPermit) {
-        final String sql1 = "INSERT INTO temporary_permit (id, rut, name, address, reason, request_time, valid_from, valid_until) ";
-        final String sql2 = "VALUES (:id, :rut, :name, :address, :reason, ";
-        final String sql3 = "current_timestamp, ";  // Tiempo en que se pide el permiso.
+        final String sql1 = "INSERT INTO temporary_permit (id, rut, name, address, mail, reason, request_time, valid_from, valid_until) ";
+        final String sql2 = "VALUES (:id, :rut, :name, :address, :mail, :reason, ";
+        final String sql3 = "current_timestamp, ";                              // Tiempo en que se pide el permiso.
         final String sql4 = "current_timestamp + (10 * interval '1 minute'), "; // Espacio de 10 minutos desde que se pide el permiso.
         final String sql5 = "current_timestamp + (130 * interval '1 minute'))"; // Espacio de 2 horas para utlizar el permiso.
         final String sql = sql1 + sql2 + sql3 + sql4 + sql5;
@@ -32,10 +36,16 @@ public class TemporaryPermitDas implements TemporaryPermitDao {
                 .addParameter("rut", temporaryPermit.getRut())
                 .addParameter("name", temporaryPermit.getName())
                 .addParameter("address", temporaryPermit.getAddress())
+                .addParameter("mail", temporaryPermit.getMail())
                 .addParameter("reason", temporaryPermit.getReason())
                 .executeUpdate();
             
-            return selectTemporaryPermitById(id);
+            Optional<TemporaryPermit> returnValue = selectTemporaryPermitById(id);
+            TemporaryPermit permit = returnValue.get();
+
+            sendEmailService.sendEmail(permit.getId(), permit.getMail(), permit.getName(), permit.getValidFrom().toString(), permit.getValidUntil().toString());
+
+            return returnValue;
         }
     }
 

@@ -26,6 +26,7 @@ Características de un sistema distribuido.
     "rut": "",
     "name": "",
     "address": "",
+    "mail": "",
     "reason": "",
 }
 ```
