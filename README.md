@@ -25,6 +25,7 @@ Al estar trabajando de manera local, no se está poninendo a disposición ningú
 - Transparencia en la distribución.
  Esconder el hecho que procesos y recursos están fisicamente distribuidos en múltiples computadores.
  
+No es transparente. Nuevamente, al estar trabajando de manera local todo los recursos se encuentran en una misma máquina y no están distribuidos en multiples computadores. La unibicación, migración y re-localización se ven afectadas por el uso de localhost como nombre de dominio. Para el caso de replicación, el back está preparado sólo para utilizar una base de datos no distribuida o replicada. La concurrencia no aplica ya que no se pueden ingresar dos formularios al mismo tiempo en una sola máquina. Por último, si algo falla el sistema deja de funcionar de inmediato al no haber respaldos del front, back o base de datos.
 
 - Apertura.
 Ofrece servicios bajo reglas estándar.
