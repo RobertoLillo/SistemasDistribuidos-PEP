@@ -18,13 +18,18 @@ Se utilizaron las siguientes tecnologías para el desarrollo de la aplicación.
 Características de un sistema distribuido.
 
 - Poner recursos a disposición.
-    - Facilitar a los usuarios y aplicaciones acceder recursos remotos de manera eficiente.
+Facilitar a los usuarios y aplicaciones acceder recursos remotos de manera eficiente.
+
+Al estar trabajando de manera local, no se está poninendo a disposición ningún recurso remoto así que no cumpliría este punto. Por otro lado respecto a la seguridad del sistema, se está haciendo uso de identificadores más complejos (UUID) pero ningún dato que se envíe desde front hacia el back o hacia la base de datos se encripta. Finalmente, no se tiene ningún factor de autenticación implementado.
 
 - Transparencia en la distribución.
-    - Esconder el hecho que procesos y recursos están fisicamente distribuidos en múltiples computadores.
+ Esconder el hecho que procesos y recursos están fisicamente distribuidos en múltiples computadores.
+ 
 
 - Apertura.
-    - Ofrece servicios bajo reglas estándar.
+Ofrece servicios bajo reglas estándar.
+
 
 - Escalabilidad.
-    - Modificar sin bajar el servicio las características del sistema.
+Modificar sin bajar el servicio las características del sistema.
+
