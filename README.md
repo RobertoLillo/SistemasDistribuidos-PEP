@@ -30,6 +30,7 @@ No es transparente. Nuevamente, al estar trabajando de manera local todo los rec
 - Apertura.
 Ofrece servicios bajo reglas estándar.
 
+El sistema cumple con ofrecer servicios bajo reglas estándar. El front y back se comunican mediante una API REST utlizando JSON como formato de texto, mientras el back y la base de datos se comunican mediante un protocolo para ingresar o extraer información. También se ofrece parcialmente fácil extensión, ya que el back tiene la capacidad de ofrecer nuevos endpoints en medida que se vayan solicitando nuevas funcionalidades.
 
 - Escalabilidad.
 Modificar sin bajar el servicio las características del sistema.
