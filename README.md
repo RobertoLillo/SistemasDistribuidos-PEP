@@ -13,6 +13,39 @@ Se utilizaron las siguientes tecnologías para el desarrollo de la aplicación.
 
 - Frontend - Vue.js
 
+## Levantamiento del sistema
+
+- Antes de levantar el back o el front, es necesario tener desplegada una base de datos PostgresSQL de forma local, esta se puede levantar con Docker con el comando:
+```
+$ docker run --name postgresql -h postgresql -e POSTGRES_PASSWORD=password -d postgres
+```
+
+- Luego, ingresando a Postgres mediante PSQL o PGAdmin4, utilizar el esquema SQL que se encuentra en la siguiente ruta para levantar la tabla necesaria para el funcionamiento del back.
+```
+/BACKEND/src/main/resources/db/migration/schema.sql
+```
+
+- Posteriormente se puede levantar el back, pero primero es necesario configurar el archivo application.properties en la siguiente ruta. Aquí es necesario agregar las credenciales de la base de datos (por defecto el usuario es postgres y la password la ingresada en el levantamiento del contenedor). También es necesario ingresar las credenciales para el envío del Email de confirmación.
+```
+/BACKEND/src/main/resources/application.properties
+```
+
+- Luego, ubicandose en la ruta de la carpeta BACKEND, levantar el back con el siguiente comando.
+```
+$ mvn spring-boot:run
+```
+
+- Por otro lado, ubicandose en la ruta de la carpeta FRONTEND, realizar los dos siguientes comandos.
+```
+$ npm install
+$ npm run serve
+```
+
+- Finalmente, se podrá ingresar a la aplicación WEB mediante la siguiente ruta.
+```
+localhost:8080
+```
+
 ## Análisis del sistema
 
 ### 1) Poner recursos a disposición
