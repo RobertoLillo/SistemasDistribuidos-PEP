@@ -67,3 +67,7 @@ localhost:8080
 **Modificar sin bajar el servicio las características del sistema.**
 
 - El sistema no está preparado para la escalabilidad horizontal, ya que ningún elemento fue diseñado considerando la distribución en varias máquinas. Por otro lado, se podría ver beneficiado si se escalara de forma vertical, mejorando el computador en el que está desplegado. El particionamiento y replicamiento tampoco está presente en este sistema, la información se guarda en una sola base de datos. Tampoco se hace utilización de Cache, no se guardan datos para su lectura más rápida ni en front ni back.
+
+## Pruebas del sistema
+
+- Se realizaron pruebas con el software Postman, utilizando el complemento Postman Runner, que permite enviar una cierta cantidad de request en un intervalo de tiempo. Se hicieron pruebas con 5, 25 y 100 request, todas se ingresaron correctamente a la base de datos y además, se enviaron correctamente todas estas veces los correos de confirmación al usuario.
