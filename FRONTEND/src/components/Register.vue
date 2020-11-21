@@ -13,6 +13,14 @@
     ></v-text-field>
 
     <v-text-field
+      v-model="user.mail"
+      :counter="30"
+      :rules="emailRules"
+      label="E-mail"
+      required
+    ></v-text-field>
+
+    <v-text-field
       v-model="user.rut"
       :rules="[validateRUT()]"
       :hint="'Formato: 12345678-9'"
@@ -89,7 +97,7 @@ import ValidatorService from '../services/validatorsService';
       email: '',
       emailRules: [
         v => !!v || 'Ingrese su E-mail',
-        v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+        v => /.+@.+\..+/.test(v) || 'E-mail debe ser válido',
       ],
       rutRules: [
         (v) => validarRUT(v) || 'RUT inválido (Formato: 12345678-9)'
@@ -115,7 +123,8 @@ import ValidatorService from '../services/validatorsService';
         rut: '',
         name: '',
         address: '',
-        reason: ''
+        reason: '',
+        mail: '',
       },
       temporary: null,
       region: ["Región Metropolitana de Santiago"],
@@ -134,7 +143,8 @@ import ValidatorService from '../services/validatorsService';
             rut: this.user.rut,
             name: this.user.name,
             address: this.user.address + ', ' + this.selectComuna + ', ' + this.selectRegion,
-            reason: this.user.reason
+            reason: this.user.reason,
+            mail: this.user.mail
         };
         http
             .post("/api/newTemporaryPermit", user)
