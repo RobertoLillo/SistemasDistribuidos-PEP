@@ -111,6 +111,6 @@ Se solicitó seleccionar dos de las caracteristicas anteriores e implementarlas 
 Todo este proceso se realizó en Google Cloud Platform, con el fin de tener acceso remoto fácil a estos servidores y así cumplir con la característica de disposición de recursos. Además, cada uno de los tres componentes se levantó en una máquina virtual distinta con el fin de distribuirlos y mejorar la transparencia del sistema, teniendo en cuenta la seguridad, sólo se dejó con acceso público el servidor que contiene el frontend de la aplicación.
 
 Considerando las mejoras anteriores, se llegó a la siguiente arquitectura.
-![alt text](https://scontent.fzco2-1.fna.fbcdn.net/v/t1.15752-9/152062586_463335918192023_2105785832375173503_n.png?_nc_cat=110&ccb=3&_nc_sid=ae9488&_nc_ohc=pj4OvbQcGaQAX9QzUS0&_nc_ht=scontent.fzco2-1.fna&oh=0bc77ae4aaefbe2a27b59e6967c2bcb4&oe=60594F1B)
+![alt text](https://scontent.fzco2-1.fna.fbcdn.net/v/t1.15752-9/152420113_458674571940000_2048926380069075251_n.png?_nc_cat=109&ccb=3&_nc_sid=ae9488&_nc_ohc=RLnpkbn-cAIAX_0lPOG&_nc_ht=scontent.fzco2-1.fna&oh=687902e4bf82f612be1b1fcd6cfd1fde&oe=605C00F2)
 
 ## Análisis de los resultados.
