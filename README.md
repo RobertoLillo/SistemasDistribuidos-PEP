@@ -1,4 +1,4 @@
-# SistemasDistribuidos-PEP1
+# PEP-1
 PEP 1 de asignatura Sistemas Distribuidos 2-2020.
 
 Roberto Lillo / Jorge Ayala
@@ -56,7 +56,7 @@ localhost:8080
 ### 2) Transparencia en la distribución
 **Esconder el hecho que procesos y recursos están fisicamente distribuidos en múltiples computadores.**
  
-- No es transparente. Nuevamente, al estar trabajando de manera local todo los recursos se encuentran en una misma máquina y no están distribuidos en multiples computadores. La unibicación, migración y re-localización se ven afectadas por el uso de localhost como nombre de dominio. Para el caso de replicación, el back está preparado sólo para utilizar una base de datos no distribuida o replicada. La concurrencia no aplica ya que no se pueden ingresar dos formularios al mismo tiempo en una sola máquina. Por último, si algo falla el sistema deja de funcionar de inmediato al no haber respaldos del front, back o base de datos.
+- No es transparente. Nuevamente, al estar trabajando de manera local todo los recursos se encuentran en una misma máquina y no están distribuidos en multiples computadores. La unificación, migración y re-localización se ven afectadas por el uso de localhost como nombre de dominio. Para el caso de replicación, el back está preparado sólo para utilizar una base de datos no distribuida o replicada. La concurrencia no aplica ya que no se pueden ingresar dos formularios al mismo tiempo en una sola máquina. Por último, si algo falla el sistema deja de funcionar de inmediato al no haber respaldos del front, back o base de datos.
 
 ### 3) Apertura
 **Ofrece servicios bajo reglas estándar.**
@@ -71,3 +71,39 @@ localhost:8080
 ## Pruebas del sistema
 
 - Se realizaron pruebas con el software Postman, utilizando el complemento Postman Runner, que permite enviar una cierta cantidad de request en un intervalo de tiempo. Se hicieron pruebas con 5, 25 y 100 request, todas se ingresaron correctamente a la base de datos y además, se enviaron correctamente todas estas veces los correos de confirmación al usuario.
+
+# PEP-2
+PEP 2 de asignatura Sistemas Distribuidos 2-2020.
+
+## Arquitectura de la PEP anterior.
+
+En la primera prueba se solicitó el desarrollo de una arquitectura computacional simple, basandose en el sitio de Comisaria Virtual.
+![alt text](https://scontent.fzco2-1.fna.fbcdn.net/v/t1.15752-9/152861622_438127537302954_8799250674111428124_n.png?_nc_cat=110&ccb=3&_nc_sid=ae9488&_nc_ohc=IcxbTfNmw3MAX-UcTmo&_nc_ht=scontent.fzco2-1.fna&oh=5bd1af0296cec096bef3c2bbd26ef7c3&oe=605C015E)
+
+Para la implementación de la arquitectura se utilizó:
+
+- Frontend -> Vue.js
+- Backend -> Spring-Boot
+- Base de datos -> PostgreSQL
+
+## Estado anterior e implementación de características.
+
+Primero, se puede apreciar la siguiente lista de características que no fueron cumplidas en la primera arquitectura:
+
+- Poner recursos a disposición
+- Transparencia en la distribución
+- Escalabilidad
+
+Las dos primeras se deben principalmente a que se trabajó completamente de manera local, la naturaleza de esto no permitió cumplir con estas características. Por otro lado, la característica de escalabilidad horizontal se ve ocasionada al no diseñar desde un principio el sistema para tener esta capacidad y que se pueda distribuir facilmente entre distintas máquinas, ya sea frontend o backend como también la base de datos.
+
+## Mejoras de la arquitectura para satisfacer las características faltantes.
+
+1º Con respecto a la disposición de recursos. La mejora principal que se realizará será levantar los tres componentes (frontend, backend y base de datos) en servidores remotos, que puedan ser accedidos desde cualquier dirección.
+
+2º Con respecto a la transparencia. Además de levantar los componentes en un servidor remoto, cada uno de estos será levantado en su propia máquina distribuida, entregandole a cada uno de ellos una dirección IP única para la comunicación.
+
+3º Con respecto a la escalabilidad. La escalabilidad vertical sigue sin ser un problema, ya que la mayoría de las soluciones de servidores en la nube ofrecen la capacidad de agregar recursos a las máquinas virtuales sin perder la integridad del sistema. En el aspecto horizontal, se puede configurar la base de datos para que trabaje de manera distribuida y haga replicaciones de datos en las distintas máquinas.
+
+## Mejoras que fueron implementadas.
+
+Se solicitó seleccionar dos de las caracteristicas anteriores e implementarlas efectivamente, por lo que se decidió trabajar en implementar la número 1 y 2 con el fin de mejorar la disposición de recursos y la transparencia de estos.
