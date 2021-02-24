@@ -78,6 +78,7 @@ PEP 2 de asignatura Sistemas Distribuidos 2-2020.
 ## Arquitectura de la PEP anterior.
 
 En la primera prueba se solicitó el desarrollo de una arquitectura computacional simple, basandose en el sitio de Comisaria Virtual.
+
 ![alt text](https://scontent.fzco2-1.fna.fbcdn.net/v/t1.15752-9/152861622_438127537302954_8799250674111428124_n.png?_nc_cat=110&ccb=3&_nc_sid=ae9488&_nc_ohc=IcxbTfNmw3MAX-UcTmo&_nc_ht=scontent.fzco2-1.fna&oh=5bd1af0296cec096bef3c2bbd26ef7c3&oe=605C015E)
 
 Para la implementación de la arquitectura se utilizó:
@@ -111,6 +112,7 @@ Se solicitó seleccionar dos de las caracteristicas anteriores e implementarlas 
 Todo este proceso se realizó en Google Cloud Platform, con el fin de tener acceso remoto fácil a estos servidores y así cumplir con la característica de disposición de recursos. Además, cada uno de los tres componentes se levantó en una máquina virtual distinta con el fin de distribuirlos y mejorar la transparencia del sistema, teniendo en cuenta la seguridad, sólo se dejó con acceso público el servidor que contiene el frontend de la aplicación.
 
 Considerando las mejoras anteriores, se llegó a la siguiente arquitectura.
+
 ![alt text](https://scontent.fzco2-1.fna.fbcdn.net/v/t1.15752-9/152420113_458674571940000_2048926380069075251_n.png?_nc_cat=109&ccb=3&_nc_sid=ae9488&_nc_ohc=RLnpkbn-cAIAX_0lPOG&_nc_ht=scontent.fzco2-1.fna&oh=687902e4bf82f612be1b1fcd6cfd1fde&oe=605C00F2)
 
 ## Análisis de los resultados.
