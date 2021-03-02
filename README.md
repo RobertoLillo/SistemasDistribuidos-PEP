@@ -116,3 +116,19 @@ Considerando las mejoras anteriores, se llegó a la siguiente arquitectura.
 ![alt text](https://scontent.fzco2-1.fna.fbcdn.net/v/t1.15752-9/152420113_458674571940000_2048926380069075251_n.png?_nc_cat=109&ccb=3&_nc_sid=ae9488&_nc_ohc=RLnpkbn-cAIAX_0lPOG&_nc_ht=scontent.fzco2-1.fna&oh=687902e4bf82f612be1b1fcd6cfd1fde&oe=605C00F2)
 
 ## Análisis de los resultados.
+
+Se decidió realizar dos series de pruebas directas al endpoint de solicitud de nuevos permisos del sistema, primero se realizó una prueba con 20 usuarios realizando consultas dentro del lapso de tiempo de 1 minuto.
+
+![alt text](https://scontent.fzco2-1.fna.fbcdn.net/v/t1.15752-9/156199113_907049193363925_2924631636921796601_n.png?_nc_cat=108&ccb=3&_nc_sid=ae9488&_nc_ohc=Tsh67Y5qqfoAX_TvG9h&_nc_ht=scontent.fzco2-1.fna&oh=3aee74e7dd7d9df35018c726425c8ae2&oe=6064D09B)
+
+![alt text](https://scontent.fzco2-1.fna.fbcdn.net/v/t1.15752-9/156108859_518179315832204_3095317163095603746_n.png?_nc_cat=100&ccb=3&_nc_sid=ae9488&_nc_ohc=SWxUgJAgftcAX-dkOM1&_nc_ht=scontent.fzco2-1.fna&oh=a62cbd225039f2d15dda7d993c1b0d28&oe=6062335F)
+
+Posteriormente se realizó una prueba con 50 usuarios en un lapso de 5 minutos.
+
+![alt text](https://scontent.fzco2-1.fna.fbcdn.net/v/t1.15752-9/153623006_141754357806854_2868848369463499157_n.png?_nc_cat=106&ccb=3&_nc_sid=ae9488&_nc_ohc=URIsLsrZ5X8AX_hYUaF&_nc_ht=scontent.fzco2-1.fna&oh=a979eb2484ec997caa3a23b9bf62c952&oe=60620823)
+
+![alt text](https://scontent.fzco2-1.fna.fbcdn.net/v/t1.15752-9/150870002_264413368467079_2576088388965308484_n.png?_nc_cat=102&ccb=3&_nc_sid=ae9488&_nc_ohc=cN4B7jtbDKYAX-THYPn&_nc_ht=scontent.fzco2-1.fna&oh=f1af6cf034d3d41ea0d0f60c3528e151&oe=60636D36)
+
+En estas se puede apreciar que en ambos casos el tiempo de respuesta al usuario en promedio es de aproximadamente 3 segundos, mientras que el tiempo máximo de la respuesta fue de 5.5 segundos aproximadamente en los dos casos.
+
+Cabe destacar que las fallas que se pueden apreciar en las respuestas es debido a que decidimos utilizar el sistema de correos Gmail, cuando va cerca de los 150 correos enviados este detecta que están sucediendo demasiado rápido y los considera spam.
